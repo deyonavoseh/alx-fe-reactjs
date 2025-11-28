@@ -1,7 +1,8 @@
 import { useContext } from 'react';
-import UserContext from '../UserContext';
+import { UserContext } from './UserContext';
 
 function UserDetails() {
+  // useContext "subscribes" to the context and gets the value
   const userData = useContext(UserContext);
 
   return (
