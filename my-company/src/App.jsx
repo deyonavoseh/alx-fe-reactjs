@@ -3,6 +3,32 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserContext from './components/UserContext';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import UserProfile from './components/UserProfile';
+
+function App() {
+  const [user, setUser] = useState(null);
+
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/profile" element={<UserProfile />} />
+        </Routes>
+      </Router>
+    </UserContext.Provider>
+  );
+}
 
 function App() {
   const [count, setCount] = useState(0)
@@ -32,5 +58,15 @@ function App() {
     </>
   )
 }
-
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        {/* Add other routes */}
+      </Routes>
+    </Router>
+  );
+}
 export default App
