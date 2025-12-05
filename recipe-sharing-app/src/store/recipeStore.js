@@ -52,7 +52,6 @@ const useRecipeStore = create((set) => ({
   // Recommendations
   generateRecommendations: () =>
     set((state) => {
-      // Mock implementation based on favorites
       const recommended = state.recipes.filter(
         (recipe) =>
           state.favorites.includes(recipe.id) && Math.random() > 0.5
