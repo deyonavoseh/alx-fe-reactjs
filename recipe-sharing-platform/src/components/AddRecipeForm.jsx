@@ -31,14 +31,16 @@ const AddRecipeForm = () => {
     }
   };
 
-  // Handle blur (when user leaves a field)
+  // Handle blur (uses target.value)
   const handleBlur = (e) => {
-    const { name } = e.target;
+    const { name, value } = e.target;
+
     setTouched((prev) => ({
       ...prev,
       [name]: true,
     }));
-    validateField(name, formData[name]);
+
+    validateField(name, value); // <-- updated
   };
 
   // Validate individual field
@@ -95,15 +97,12 @@ const AddRecipeForm = () => {
 
   // Validate entire form
   const validateForm = () => {
-    const newErrors = {};
     let isValid = true;
 
     Object.keys(formData).forEach((key) => {
       if (key !== 'image') {
-        // image is optional
-        if (!validateField(key, formData[key])) {
-          isValid = false;
-        }
+        const fieldValid = validateField(key, formData[key]);
+        if (!fieldValid) isValid = false;
       }
     });
 
@@ -123,13 +122,8 @@ const AddRecipeForm = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Here you would typically send data to a backend
       console.log('Form submitted:', formData);
-      
-      // Show success message
       alert('Recipe added successfully!');
-      
-      // Navigate back to home page
       navigate('/');
     }
   };
@@ -148,6 +142,7 @@ const AddRecipeForm = () => {
       <main className="container mx-auto px-4 py-8 max-w-3xl">
         <div className="bg-white rounded-lg shadow-md p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
+
             {/* Recipe Title */}
             <div>
               <label htmlFor="title" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -172,7 +167,7 @@ const AddRecipeForm = () => {
               )}
             </div>
 
-            {/* Recipe Summary */}
+            {/* Summary */}
             <div>
               <label htmlFor="summary" className="block text-sm font-semibold text-gray-700 mb-2">
                 Summary *
@@ -196,7 +191,7 @@ const AddRecipeForm = () => {
               )}
             </div>
 
-            {/* Image URL (Optional) */}
+            {/* Image URL */}
             <div>
               <label htmlFor="image" className="block text-sm font-semibold text-gray-700 mb-2">
                 Image URL (Optional)
@@ -236,7 +231,7 @@ const AddRecipeForm = () => {
               )}
             </div>
 
-            {/* Preparation Steps */}
+            {/* Instructions */}
             <div>
               <label htmlFor="instructions" className="block text-sm font-semibold text-gray-700 mb-2">
                 Preparation Steps *
@@ -268,6 +263,7 @@ const AddRecipeForm = () => {
               >
                 Add Recipe
               </button>
+
               <button
                 type="button"
                 onClick={() => navigate('/')}
@@ -276,6 +272,7 @@ const AddRecipeForm = () => {
                 Cancel
               </button>
             </div>
+
           </form>
         </div>
       </main>
