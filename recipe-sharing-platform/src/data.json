@@ -1,0 +1,96 @@
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or bacon",
+      "4 large eggs",
+      "100g Parmesan cheese",
+      "Black pepper to taste",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package directions.",
+      "While pasta cooks, fry pancetta in a large skillet until crispy.",
+      "Beat eggs and grated Parmesan together in a bowl.",
+      "Drain pasta, reserving 1 cup of pasta water.",
+      "Add hot pasta to the skillet with pancetta.",
+      "Remove from heat and quickly stir in egg mixture, adding pasta water to create a creamy sauce.",
+      "Season with black pepper and serve immediately."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "500g chicken breast, cubed",
+      "1 cup yogurt",
+      "2 tbsp tikka masala spice",
+      "400g tomato puree",
+      "200ml heavy cream",
+      "2 onions, diced",
+      "4 cloves garlic, minced",
+      "2 tbsp butter",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and half the tikka masala spice for at least 1 hour.",
+      "Grill or pan-fry marinated chicken until cooked through.",
+      "In a large pan, melt butter and sauté onions until golden.",
+      "Add garlic and remaining spices, cook for 1 minute.",
+      "Add tomato puree and simmer for 10 minutes.",
+      "Stir in cream and cooked chicken.",
+      "Simmer for 5 more minutes and garnish with cilantro."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Caesar Salad",
+    "summary": "A fresh and crispy salad with romaine lettuce, croutons, and Parmesan cheese.",
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "1 large romaine lettuce",
+      "1 cup croutons",
+      "1/2 cup Parmesan cheese, shaved",
+      "Caesar dressing",
+      "2 anchovy fillets (optional)",
+      "Lemon wedges"
+    ],
+    "instructions": [
+      "Wash and tear romaine lettuce into bite-sized pieces.",
+      "In a large bowl, toss lettuce with Caesar dressing.",
+      "Add croutons and Parmesan cheese.",
+      "Top with anchovy fillets if desired.",
+      "Serve with lemon wedges on the side."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Beef Tacos",
+    "summary": "Delicious Mexican tacos with seasoned ground beef and fresh toppings.",
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "500g ground beef",
+      "1 packet taco seasoning",
+      "8 taco shells",
+      "Shredded lettuce",
+      "Diced tomatoes",
+      "Shredded cheese",
+      "Sour cream",
+      "Salsa"
+    ],
+    "instructions": [
+      "Brown ground beef in a skillet over medium heat.",
+      "Drain excess fat and add taco seasoning with water as directed on packet.",
+      "Simmer for 5 minutes until thickened.",
+      "Warm taco shells according to package directions.",
+      "Fill shells with seasoned beef.",
+      "Top with lettuce, tomatoes, cheese, sour cream, and salsa."
+    ]
+  }
+]
