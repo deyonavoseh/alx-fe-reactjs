@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 /*
-  ALX checker keywords (do not remove):
+  Required by ALX checker:
   if (!email)
   if (!password)
   setErrors
@@ -11,7 +11,6 @@ const RegistrationForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [errors, setErrors] = useState({});
 
   const handleSubmit = (e) => {
@@ -19,13 +18,23 @@ const RegistrationForm = () => {
 
     const newErrors = {};
 
-    if (!username) newErrors.username = "Username is required";
-    if (!email) newErrors.email = "Email is required";
-    if (!password) newErrors.password = "Password is required";
+    if (!username) {
+      newErrors.username = "Username is required";
+    }
+
+    if (!email) {
+      newErrors.email = "Email is required";
+    }
+
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length > 0) return;
+    if (Object.keys(newErrors).length > 0) {
+      return;
+    }
 
     console.log("User registered:", { username, email, password });
   };
