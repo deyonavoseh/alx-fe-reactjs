@@ -4,9 +4,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Posts from "./components/Posts";
 import PostDetails from "./components/PostDetails";
-import ProtectedRoute from "./components/ProtectedRoute";
+import BlogPost from "./components/BlogPost";
 import NotFound from "./components/NotFound";
 
 function App() {
@@ -30,11 +31,14 @@ function App() {
             }
           />
 
-          {/* Dynamic routing */}
+          {/* Dynamic routes */}
           <Route path="/posts" element={<Posts />} />
           <Route path="/posts/:postId" element={<PostDetails />} />
 
-          {/* Protected route (Profile has its own nested routes) */}
+          {/* ALX REQUIRED dynamic blog route */}
+          <Route path="/blog/:id" element={<BlogPost />} />
+
+          {/* Protected route */}
           <Route
             path="/profile/*"
             element={
@@ -44,7 +48,7 @@ function App() {
             }
           />
 
-          {/* Not found */}
+          {/* Fallback */}
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
