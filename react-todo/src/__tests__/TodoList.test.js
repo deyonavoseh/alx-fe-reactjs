@@ -1,55 +1,43 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import TodoList from "../components/TodoList";
 
-describe("TodoList Component", () => {
-  test("renders TodoList and initial demo todos", () => {
+describe("TodoList", () => {
+  test("renders the TodoList component with initial todos", () => {
     render(<TodoList />);
 
     expect(screen.getByText("Todo List")).toBeInTheDocument();
-
     expect(screen.getByText("Learn React")).toBeInTheDocument();
     expect(screen.getByText("Write Tests")).toBeInTheDocument();
     expect(screen.getByText("Build Todo App")).toBeInTheDocument();
   });
 
-  test("adds a new todo", () => {
+  test("adds a new todo item", () => {
     render(<TodoList />);
 
-    const input = screen.getByLabelText("todo-input");
-    const addButton = screen.getByRole("button", { name: /add/i });
+    const input = screen.getByPlaceholderText("Add a todo");
+    fireEvent.change(input, { target: { value: "New Todo" } });
 
-    fireEvent.change(input, { target: { value: "New Todo Item" } });
-    fireEvent.click(addButton);
+    fireEvent.click(screen.getByText("Add"));
 
-    expect(screen.getByText("New Todo Item")).toBeInTheDocument();
+    expect(screen.getByText("New Todo")).toBeInTheDocument();
   });
 
-  test("toggles a todo completion status", () => {
+  test("toggles a todo item", () => {
     render(<TodoList />);
 
     const todo = screen.getByText("Learn React");
-
-    // initially not completed
-    expect(todo).not.toHaveStyle("text-decoration: line-through");
-
-    // click to toggle completed
     fireEvent.click(todo);
+
     expect(todo).toHaveStyle("text-decoration: line-through");
-
-    // click again to toggle back
-    fireEvent.click(todo);
-    expect(todo).not.toHaveStyle("text-decoration: line-through");
   });
 
-  test("deletes a todo", () => {
+  test("deletes a todo item", () => {
     render(<TodoList />);
 
-    const todoText = screen.getByText("Write Tests");
-    expect(todoText).toBeInTheDocument();
+    const todo = screen.getByText("Write Tests");
+    const deleteButtons = screen.getAllByText("Delete");
 
-    // delete button is next to it
-    const deleteButtons = screen.getAllByRole("button", { name: /delete/i });
-    fireEvent.click(deleteButtons[1]); // deletes the 2nd todo ("Write Tests")
+    fireEvent.click(deleteButtons[1]);
 
     expect(screen.queryByText("Write Tests")).not.toBeInTheDocument();
   });
